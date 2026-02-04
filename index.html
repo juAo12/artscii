@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片转 ASCII（本地）</title>
+    <meta name="description" content="在浏览器本地上传图片并生成 ASCII 字符画，无需后端。" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="title">图片转 ASCII</div>
+        <div class="subtitle">本地转换，图片不会上传服务器</div>
+      </header>
+
+      <section class="card">
+        <div class="controls">
+          <div class="dropzone" id="dropzone">
+            <div class="dropzone-title">点击选择或拖拽图片到此处</div>
+            <div class="dropzone-hint">支持 png/jpg/webp/gif 等常见格式</div>
+            <input id="fileInput" type="file" accept="image/*" />
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span class="field-label">输出宽度</span>
+              <input id="widthInput" type="number" min="20" max="200" step="1" value="80" />
+            </label>
+            <button id="convertBtn" class="primary" disabled>转换/重新生成</button>
+            <button id="demoBtn">示例图片</button>
+          </div>
+
+          <div id="status" class="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <div class="card-title">原图预览</div>
+          <div class="preview">
+            <img id="previewImg" alt="" />
+            <div id="previewEmpty" class="empty">上传图片后显示预览</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">ASCII 结果</div>
+          <div class="actions">
+            <button id="saveBtn" class="action-btn hidden-btn" aria-label="保存为图片">保存图片</button>
+            <button id="copyBtn" class="action-btn hidden-btn" aria-label="复制结果">复制文本</button>
+          </div>
+          <pre id="ascii" class="ascii"></pre>
+          <div id="asciiEmpty" class="empty">上传图片后生成结果</div>
+        </div>
+      </section>
+
+      <footer class="footer">效果与输出宽度相关；建议使用对比清晰的图片</footer>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
